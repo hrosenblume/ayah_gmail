@@ -1,0 +1,23 @@
+{
+  "name": "Link Editor for Are You A Human",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Injects LLM and recipient email into Are You A Human links. An extension by Hunter Rosenblume",
+  "author": "Hunter Rosenblume",
+  "icons": { "128": "icon_128.png" },
+  "background": {
+    "persistent": false,
+    "scripts": ["jquery.js","invade.js"]
+  },
+  "browser_action": {
+    "default_icon": "icon_128.png"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ],
+  "content_scripts": [{
+      "matches": ["*://mail.google.com/*"],
+      "js": ["content.js", "jquery.js"]
+   }]
+}
