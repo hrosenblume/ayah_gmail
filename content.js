@@ -1,19 +1,7 @@
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.message == "getSource") {
-            var emails = [];
-            $(".vN").each(function() {
-                var mail = $(this).attr("email");
-                emails.push(mail);
-            });
-            if (emails.length == 0) {
-                alert("You need a recipient!");
-            } else if (emails.length > 1) {
-                alert("There can only be one recipient.");
-            } else {
-                changeLinks(emails[0]);
-                alert("All Are You A Human links (if contained in this email) have been changed!");
-            }
+            emailReply(sender, sendResponse);
         }
     });
 
@@ -25,4 +13,23 @@ function changeLinks(email) {
         console.log(insert);
         $(this).prop('href', insert);
     });
+    alert("All Are You A Human links (if contained in this email) have been changed!");
+}
+
+function emailReply(sender, sendResponse) {
+    var emails = [];
+    $(".vN").each(function() {
+        var mail = $(this).attr("email");
+        emails.push(mail);
+    });
+    if (emails.length == 0) {
+        alert("You need a recipient!");
+    } else if (emails.length > 1) {
+        var confirmation = confirm("The links will only be modified for " + emails[0] + ". Is this okay?");
+        if (confirmation == true) {
+            changeLinks(emails[0]);
+        }
+    } else {
+        changeLinks(emails[0]);
+    }
 }
