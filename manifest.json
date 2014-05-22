@@ -1,6 +1,6 @@
 {
   "name": "Link Editor for Are You A Human",
-  "version": "1.1",
+  "version": "1.2",
   "manifest_version": 2,
   "description": "Injects LLM and recipient email into Are You A Human links. An extension by Hunter Rosenblume",
   "author": "Hunter Rosenblume",
