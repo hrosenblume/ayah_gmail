@@ -9,8 +9,8 @@ function changeLinks(email) {
     var urlRegex = new RegExp("((https?://)?)(www\\.)?(areyouahuman)\\.(com)(?:/([a-z|"
                        + "A-Z|0-9|-|\\.|_|~|:|/|?|#|\\[|\\]|@|!|$|&|'|\\(|\\)|*|+|,|;|=|])*)");
     $(".Am").find('a').each(function() {
-        var insert = this.href.replace(urlRegex, this.href + "?LLM=" + email);
-        console.log(insert);
+        //var insert = this.href.replace(urlRegex, this.href + "?LLM=" + email);
+        var insert = this.href + "?LLM=" + email;
         $(this).prop('href', insert);
     });
     alert("All Are You A Human links (if contained in this email) have been changed!");
